@@ -5,7 +5,8 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-    base: process.env.NODE_ENV === 'production' ? '/sakura/' : '/',
+    // 👈 条件分岐をやめて、シンプルにリポジトリ名で固定します
+    base: '/sakura/', 
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
@@ -14,7 +15,7 @@ export default defineConfig(() => {
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
-      // Do not modifyâfile watching is disabled to prevent flickering during agent edits.
+      // Do not modify—file watching is disabled to prevent flickering during agent edits.
       hmr: process.env.DISABLE_HMR !== 'true' ? { clientPort: 443 } : false,
       // Disable file watching when DISABLE_HMR is true to save CPU during agent edits.
       watch: process.env.DISABLE_HMR === 'true' ? null : {},

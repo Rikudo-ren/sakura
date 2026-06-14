@@ -39,9 +39,9 @@ export const CHARACTERS: Record<string, CharacterConfig> = {
     color: "#a8d8ea", // Light bluish soft theme
     accent: "text-sky-300 border-sky-400",
     avatarBg: "from-sky-900 to-indigo-950",
-    image: "https://placehold.co/450x650/1e293b/a8d8ea?text=Ran\n(Normal)\n450x650\n[Replace+With+PNG]",
+    image: "/images/ran_normal.png",
     expressions: {
-      normal: "https://placehold.co/450x650/1e293b/a8d8ea?text=Ran\n(Normal)\n450x650\n[Replace+With+PNG]",
+      normal: "/images/ran_normal.png",
       smile: "https://placehold.co/450x650/1e293b/a8d8ea?text=Ran\n(Smile)\n450x650\n[Replace+With+PNG]",
       shy: "https://placehold.co/450x650/3b1e2c/ec4899?text=Ran\n(Shy)\n450x650\n[Replace+With+PNG]",
       surprised: "https://placehold.co/450x650/1a1e36/38bdf8?text=Ran\n(Surprised)\n450x650\n[Replace+With+PNG]",

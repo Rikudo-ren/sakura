@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import TitleScreen from './components/TitleScreen';
+import Preloader from './components/Preloader';
 import NovelEngine from './components/NovelEngine';
 import { audio } from './utils/audio';
 
 export default function App() {
-  const [gameState, setGameState] = useState<'title' | 'novel'>('title');
+  const [gameState, setGameState] = useState<'title' | 'preload' | 'novel'>('title');
   const [startSceneId, setStartSceneId] = useState('prologue_001');
+  const [pendingSceneId, setPendingSceneId] = useState('prologue_001');
   const [unlockedFlags, setUnlockedFlags] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
@@ -27,7 +29,12 @@ export default function App() {
   }, []);
 
   const handleStartGame = (sceneId: string) => {
-    setStartSceneId(sceneId);
+    setPendingSceneId(sceneId);
+    setGameState('preload');
+  };
+
+  const handlePreloadComplete = () => {
+    setStartSceneId(pendingSceneId);
     setGameState('novel');
   };
 
@@ -47,6 +54,8 @@ export default function App() {
       <div className="w-full h-full max-w-[1280px] max-h-[720px] aspect-video relative overflow-hidden shadow-2xl border border-white/5 rounded-none md:rounded-lg">
         {gameState === 'title' ? (
           <TitleScreen onStartGame={handleStartGame} />
+        ) : gameState === 'preload' ? (
+          <Preloader onComplete={handlePreloadComplete} />
         ) : (
           <NovelEngine
             initialSceneId={startSceneId}

@@ -1,0 +1,6 @@
+{
+  "name": "シュレディンガーの恋",
+  "description": "桐葉高校を舞台にした✝本質✝恋愛学ビジュアルノベルゲーム。恋愛学研究者の櫻優（主人公）となり、図書室の静かな少女・内藤蘭との重ね合わさる好意を観測せよ。全5エンド＋隠しエンド搭載。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
